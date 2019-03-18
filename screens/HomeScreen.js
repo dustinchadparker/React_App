@@ -4,6 +4,10 @@ import ProjectCard from '../components/ProjectCard';
 
 export default class HomeScreen extends Component {
 
+    static navigationOptions = {
+        title: "Covalence Projects"
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -21,12 +25,20 @@ export default class HomeScreen extends Component {
             ]
         })
     }
+
+    navigate(project) {
+        this.props.navigation.navigate('ProjectDetail', { project });
+
+    }
+
     render() {
 
         return (
             <ScrollView style={styles.container}>
                 {this.state.projects.map((project, index) => {
-                    return <ProjectCard key={index} project={project}></ProjectCard>
+                    return (<ProjectCard key={index} project={project}
+                        Navigate={() => { this.navigate(project) }}></ProjectCard>
+                    )
                 })}
             </ScrollView>
         );
