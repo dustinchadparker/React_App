@@ -1,0 +1,1 @@
+## A React application that mimics a voting application
