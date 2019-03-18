@@ -36,7 +36,7 @@ export default class HomeScreen extends Component {
     }
 
     navigate(project) {
-        this.props.navigation.navigate('ProjectDetail', { project });
+        this.props.navigation.navigate('ProjectTab', { project });
 
     }
 
