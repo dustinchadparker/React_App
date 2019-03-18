@@ -25,12 +25,12 @@ export default class HomeScreen extends Component {
 
     async fetchProjects() {
         try {
-            let result = await fetch({ url: 'https://gravity.covalence.io/api/graduation/projects' });
+            let result = await fetch({ url: 'https://ghibliapi.herokuapp.com/films' });
             let projects = await result.json();
             return projects;
         } catch (e) {
             console.log(e);
-            return;
+            return e;
         }
 
     }
@@ -44,8 +44,8 @@ export default class HomeScreen extends Component {
 
         return (
             <ScrollView style={styles.container}>
-                {this.state.projects.map((project, index) => {
-                    return (<ProjectCard key={index} project={project}
+                {this.state.projects.map((project) => {
+                    return (<ProjectCard key={project.id} project={project}
                         Navigate={() => { this.navigate(project) }}></ProjectCard>
                     )
                 })}

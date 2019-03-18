@@ -6,9 +6,9 @@ export default class ProjectCard extends Component {
 
         return (
             <Card
-                title={this.props.project.name}
+                title={this.props.project.director}
                 image={require('../images/death.jpeg')}>
-                
+
                 <Button
                     transparent
                     raised

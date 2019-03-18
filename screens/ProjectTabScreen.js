@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
-import { TabNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import ProjectDetailScreen from './ProjectDetailScreen';
 import ProjectStudentsScreen from './ProjectStudentsScreen';
 
 
-const TabNavigation = TabNavigator({
+const TabNavigation = createBottomTabNavigator({
     ProjectDetail: { screen: ProjectDetailScreen },
     StudentScreen: { screen: ProjectStudentsScreen },
 });
+
+const AppContainer = createAppContainer(TabNavigation);
+
 export default class ProjectTabScreen extends Component {
-    static navigationOptions = ({ navigation }) => ({ title: navigation.state.params.project.name })
-    
+    static navigationOptions = ({ navigation }) => ({ title: navigation.state.params.project.director })
+
     render() {
         return (
-            <TabNavigation screenProps={{project: this.props.navigation.state.params.project}} />
+            <AppContainer screenProps={{ project: this.props.navigation.state.params.project }} />
         )
     }
 }
