@@ -3,7 +3,7 @@ import { ScrollView, Text } from 'react-native';
 
 export default class ProjectDetailScreen extends Component {
 
-    static navigationOptions = ({ navigation }) => ({ title: navigation.state.params.project.name })
+    static navigationOptions = ({ navigation }) => ({ title: navigation.state.params.project.director })
 
     constructor(props) {
         super(props);
