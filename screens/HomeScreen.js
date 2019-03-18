@@ -14,16 +14,25 @@ export default class HomeScreen extends Component {
             projects: []
         }
     }
+    // gravity.covalence.io/api/graduation/projects
 
-    componentDidMount() {
-        this.setState({
-            projects: [
-                { name: 'Test Project 1', description: 'CoolProject' },
-                { name: 'Test Project 2', description: 'CoolProject' },
-                { name: 'Test Project 3', description: 'CoolProject' },
-                { name: 'Test Project 4', description: 'CoolProject' },
-            ]
-        })
+    async componentDidMount() {
+        let projects = await this.fetchProjects();
+        this.setState({ projects });
+
+
+    }
+
+    async fetchProjects() {
+        try {
+            let result = await fetch({ url: 'https://gravity.covalence.io/api/graduation/projects' });
+            let projects = await result.json();
+            return projects;
+        } catch (e) {
+            console.log(e);
+            return;
+        }
+
     }
 
     navigate(project) {

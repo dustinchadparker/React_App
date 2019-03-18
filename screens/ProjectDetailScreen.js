@@ -9,7 +9,7 @@ export default class ProjectDetailScreen extends Component {
         super(props);
         this.project = this.props.navigation.state.params.project;
     }
-    
+
     render() {
         return (
             <ScrollView>
