@@ -15,7 +15,7 @@ export default class HomeScreen extends Component {
             projects: [
                 { name: 'Test Project 1', description: 'CoolProject' },
                 { name: 'Test Project 2', description: 'CoolProject' },
-                { name: 'Test Project 31', description: 'CoolProject' },
+                { name: 'Test Project 3', description: 'CoolProject' },
                 { name: 'Test Project 4', description: 'CoolProject' },
             ]
         })
