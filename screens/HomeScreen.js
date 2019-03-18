@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, Text, StyleSheet } from 'react-native';
+import ProjectCard from '../components/ProjectCard';
 
 export default class HomeScreen extends Component {
 
@@ -25,7 +26,7 @@ export default class HomeScreen extends Component {
         return (
             <ScrollView style={styles.container}>
                 {this.state.projects.map((project, index) => {
-                    return <Text key={index}>{project.name}</Text>
+                    return <ProjectCard key={index} project={project}></ProjectCard>
                 })}
             </ScrollView>
         );
